@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Giống Mẫu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Footer tổng thể */
+        .footer {
+            background-color: #ffffff;
+            padding-top: 40px;
+        }
+
+        /* Phần trên của footer */
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 10%;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .footer-column p {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Chăm sóc da và chăm sóc cơ thể trên cùng một hàng */
+        .group-section {
+            display: flex;
+            gap: 50px;
+        }
+
+        /* Phần nền xám dưới */
+        .footer-bottom {
+            background-color: #f8f8f8;
+            padding: 30px 10%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom .footer-column h3 {
+            color: #FF7043; /* Màu cam */
+            font-weight: bold;
+        }
+
+        .footer-bottom .footer-column p {
+            color: black;
+        }
+
+        /* Căn chỉnh hình ảnh phương thức thanh toán */
+        .payment-methods img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Phần trên -->
+        <div class="footer-top">
+            <div class="footer-column">
+                <h3><b>TRANG ĐIỂM</b></h3>
+                <p>Mắt, Mặt, Môi, Chân mày, Set trang điểm,<br> Sản phẩm mới nhất</p>
+            </div>
+
+            <!-- Chăm sóc da và chăm sóc cơ thể nằm ngang -->
+            <div class="group-section">
+                <div class="footer-column">
+                    <h3><b>CHĂM SÓC DA</b></h3>
+                    <p>Làm sạch, Chăm sóc da khác, Dưỡng da,<br> Chăm sóc chuyên sâu, Mặt nạ</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3><b>CHĂM SÓC CƠ THỂ</b></h3>
+                    <p>Dưỡng móng tay, Đặc trị cơ thể,<br> Chăm sóc răng miệng, Làm sạch,<br> Dưỡng thể</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3><b>DỤNG CỤ LÀM ĐẸP</b></h3>
+                <p>Chăm sóc móng, Dành cho mặt,<br> Cọ trang điểm, Dụng cụ trang điểm</p>
+            </div>
+        </div>
+
+        <!-- Phần dưới màu xám -->
+        <div class="footer-bottom">
+            <div class="footer-column">
+                <h3>LIÊN HỆ VỚI CELAH</h3>
+                <p>Tầng 6, Tòa nhà Ladeco, 266 Đội Cấn, Phường Liễu Giai, Quận Ba Đình, TP Hà Nội</p>
+                <p>support@sapo.vn</p>
+                <p>19006750</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>CHÍNH SÁCH</h3>
+                <p>Trang chủ, Sale, Sản phẩm, Trang điểm, Chăm sóc da, Tin tức, Liên hệ</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>ĐỐI TÁC - LIÊN KẾT</h3>
+                <p>Chính hãng phân phối độc quyền THEFACESHOP tại Việt Nam</p>
+                <p>Đối tác chính hãng của M.O.I cosmetic</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>PHƯƠNG THỨC THANH TOÁN</h3>
+                <div class="payment-methods">
+                    <img src="image.png" alt="Phương thức thanh toán">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

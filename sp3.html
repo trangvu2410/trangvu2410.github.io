@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="sp1.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <script>
+            let cart = new Set();
+            const products = [
+                { name: "Bánh tráng nướng", image: "trangnuong.jpg" },
+                { name: "Bánh tráng hến", image: "hen.jpg" },
+                { name: "Bánh tráng mỡ hành", image: "mohanh.jpg" }
+            ];
+
+            products.forEach((product, index) => {
+                document.write(`
+                    <div class="card">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p class="price">${30 + (index % 5) * 5},000 VND</p>
+                        <button class="btn" id="btn-${index}" onclick="toggleCart(${index})">Thêm vào giỏ</button>
+                    </div>
+                `);
+            });
+        </script>
+    </div>
+
+    <script>
+        function toggleCart(index) {
+            let button = document.getElementById(`btn-${index}`);
+            if (cart.has(index)) {
+                cart.delete(index);
+                button.innerText = "Thêm vào giỏ";
+                button.style.background = "orange";
+            } else {
+                cart.add(index);
+                button.innerText = "Bỏ khỏi giỏ";
+                button.style.background = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>

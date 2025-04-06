@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Gấp Gọn</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="sp.css">
+    
+
+
+</head>
+
+<body>
+    <div class="header-top">
+        <div class="hotline">📞 Hotline: 0933 843 247</div>
+        <a href="lienHe.html">📍 Liên Hệ</a>
+    </div>
+
+    <div class="header-main">
+        <div class="logo">
+            <img src="3Tlogo.jpg" alt="Thực phẩm 3T" class="rounded-img">
+
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Tìm tên sản phẩm">
+            <button>🔍</button>
+        </div>
+
+        <div class="menu">
+            <a style="color: white;" href="tuvan.html">👤Tư vấn</a>
+            <a style="color: white;" href="index.html">❤️ Trang chủ</a>
+            <a style="color: white;" href="sanpham.html">🛒 Sản phẩm</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <iframe src="sp3.html" ></iframe>
+    </div>
+    <script>
+        function toggleMenu(id, element) {
+            let submenu = document.getElementById(id);
+            let icon = element.querySelector(".toggle-btn");
+
+            if (submenu.classList.contains("active")) {
+                submenu.classList.remove("active");
+                icon.classList.remove("rotate");
+            } else {
+                submenu.classList.add("active");
+                icon.classList.add("rotate");
+            }
+        }
+    </script>
+</body>
+
+</html>

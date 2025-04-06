@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" href="Trangchu.css">
+</head>
+<style>
+     
+</style>
+<body>
+
+    <div class="navbar">
+        <div class="header-top">
+            <div class="hotline">📞 Hotline: 0933 843 247</div>
+            <a href="lienHe.html">📍 Liên Hệ</a>
+        </div>
+
+        <div class="header-main">
+            <div class="logo">
+                <img src="3t.jpg" alt="Thực phẩm 3T" class="rounded-img">
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Tìm tên sản phẩm">
+                <button>🔍</button>
+            </div>
+
+            <div class="menu">
+                <a href="tuvan.html">👤 Tư vấn</a>
+                <a href="Trangchu.html">❤️ Trang chủ</a>
+                <a href="sanpham.html">🛒 Sản phẩm</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="flan-container" onclick="window.location.href='sanpham.html'">
+        <img class="flan-img" src="BanhFlan.webp" alt="" srcset="">
+    <p class="image-text">Sản Phẩm</p>
+</div>
+
+<div class="image-container" onclick="window.location.href='lienHe.html'">
+    <img src="Hotline.png" alt="" srcset="">
+    <p class="image-text">Liên Hệ</p>
+</div> 
+
+<div id="chatBox">
+    <div class="header">Tư vấn Thực phẩm 3T <span onclick="closeChat()">×</span></div>
+    <div style="padding:10px;">
+        <p>Xin chào! Bạn cần hỗ trợ gì ạ?</p>
+        <input type="text" placeholder="Nhập câu hỏi...">
+        <button onclick="sendQuestion()">Gửi</button>
+        <script>
+            function sendQuestion() {
+                const question = document.querySelector('#chatBox input').value.trim();
+                if (question) {
+                    // Chuyển hướng kèm câu hỏi
+                    window.location.href = `tuvan.html?question=${encodeURIComponent(question)}`;
+                } else {
+                    alert('Vui lòng nhập câu hỏi!');
+                }
+            }
+        </script>            
+    </div>
+</div>
+
+<button class="chat-toggle-btn" onclick="openChat()">💬</button>
+
+<script>
+    function openChat() {
+        document.getElementById("chatBox").style.display = "block";
+    }
+
+    function closeChat() {
+        document.getElementById("chatBox").style.display = "none";
+    }
+</script>
+</body>
+</html>
