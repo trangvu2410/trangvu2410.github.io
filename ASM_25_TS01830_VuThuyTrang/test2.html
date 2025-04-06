@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực phẩm 3T - Liên hệ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body & Layout */
+        body {
+            min-height: 100vh;  /* Đảm bảo chiều cao tối thiểu bằng toàn màn hình */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;  /* Đảm bảo nội dung chiếm hết phần trống */
+            padding-top: 120px; /* Đẩy nội dung xuống để không bị che bởi header */
+        }
+
+        /* Header */
+        .header-top {
+            background-color: #026d21;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header-top .hotline {
+            font-size: 14px;
+        }
+
+        .header-top a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: white;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            position: relative;
+            top: 0px;
+            left: 0;
+            z-index: 999;
+            
+            
+        }
+
+        .logo img {
+            height: 50px;
+            border-radius: 15px;
+        }
+
+        .search-box {
+            flex-grow: 1;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: green;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .menu a:hover {
+            color: green;
+        }
+
+        /* Phần Liên hệ */
+        .contact-container {
+            display: flex;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-info {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .contact-info p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-form h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to right, #9bca64, #d97b32);
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: linear-gradient(to right, #8bb856, #c96a22);
+            transform: scale(1.05);
+        }
+
+        .map {
+            flex: 1;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto; /* Đẩy footer xuống nếu nội dung ngắn */
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .subscribe-section {
+            background-color: #f6efe4;
+            padding: 20px;
+            text-align: center;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Footer tổng thể */
+        .footer {
+            background-color: #ffffff;
+            padding-top: 40px;
+        }
+
+        /* Phần trên của footer */
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 10%;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .footer-column p {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Chăm sóc da và chăm sóc cơ thể trên cùng một hàng */
+        .group-section {
+            display: flex;
+            gap: 50px;
+        }
+
+        /* Phần nền xám dưới */
+        .footer-bottom {
+            background-color: #f8f8f8;
+            padding: 30px 10%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom .footer-column h3 {
+            color: #FF7043; /* Màu cam */
+            font-weight: bold;
+        }
+
+        .footer-bottom .footer-column p {
+            color: black;
+        }
+
+        /* Căn chỉnh hình ảnh phương thức thanh toán */
+        .payment-methods img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header-top">
+        <div class="hotline">📞 Hotline: 0933 843 247</div>
+        <a href="#">📍 Liên Hệ</a>
+    </div>
+
+    <div class="header-main">
+        <div class="logo">
+            <img src="3t.jpg" alt="Thực phẩm 3T">
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Tìm tên sản phẩm">
+            <button>🔍</button>
+        </div>
+
+        <div class="menu">
+            <a href="#">👤 Tư vấn</a>
+            <a href="#">❤️ Trang chủ</a>
+            <a href="#">🛒 Sản phẩm</a>
+        </div>
+    </div>
+
+
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <p>📍 Tòa nhà Ladeco, 266 Đội Cấn, Ba Đình, Hà Nội</p>
+                <p>📞 19006750</p>
+                <p>📧 coolteam@gmail.com</p>
+                
+                <div class="contact-form">
+                    <h3>Liên hệ với chúng tôi</h3>
+                    <input type="text" placeholder="Họ và tên">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Nội dung" rows="4"></textarea>
+                    <button>Gửi liên hệ</button>
+                </div>
+            </div>
+
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+        <!-- Phần nội dung -->
+        <div class="content">
+            <div class="subscribe-section">
+                <h2>Liên Hệ</h2>
+            </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <!-- Phần trên -->
+    <div class="footer-top">
+        <div class="footer-column">
+            <h3><b>TRANG ĐIỂM</b></h3>
+            <p>Mắt, Mặt, Môi, Chân mày, Set trang điểm,<br> Sản phẩm mới nhất</p>
+        </div>
+
+        <!-- Chăm sóc da và chăm sóc cơ thể nằm ngang -->
+        <div class="group-section">
+            <div class="footer-column">
+                <h3><b>CHĂM SÓC DA</b></h3>
+                <p>Làm sạch, Chăm sóc da khác, Dưỡng da,<br> Chăm sóc chuyên sâu, Mặt nạ</p>
+            </div>
+
+            <div class="footer-column">
+                <h3><b>CHĂM SÓC CƠ THỂ</b></h3>
+                <p>Dưỡng móng tay, Đặc trị cơ thể,<br> Chăm sóc răng miệng, Làm sạch,<br> Dưỡng thể</p>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3><b>DỤNG CỤ LÀM ĐẸP</b></h3>
+            <p>Chăm sóc móng, Dành cho mặt,<br> Cọ trang điểm, Dụng cụ trang điểm</p>
+        </div>
+    </div>
+
+    <!-- Phần dưới màu xám -->
+    <div class="footer-bottom">
+        <div class="footer-column">
+            <h3>LIÊN HỆ VỚI CELAH</h3>
+            <p>Tầng 6, Tòa nhà Ladeco, 266 Đội Cấn, Phường Liễu Giai, Quận Ba Đình, TP Hà Nội</p>
+            <p>support@sapo.vn</p>
+            <p>19006750</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>CHÍNH SÁCH</h3>
+            <p>Trang chủ, Sale, Sản phẩm, Trang điểm, Chăm sóc da, Tin tức, Liên hệ</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>ĐỐI TÁC - LIÊN KẾT</h3>
+            <p>Chính hãng phân phối độc quyền THEFACESHOP tại Việt Nam</p>
+            <p>Đối tác chính hãng của M.O.I cosmetic</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>PHƯƠNG THỨC THANH TOÁN</h3>
+            <div class="payment-methods">
+                <img src="image.png" alt="Phương thức thanh toán">
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© 2024 Thực phẩm 3T. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang tư vấn Thực phẩm 3T</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { margin: 0; display: flex; flex-direction: column; height: 100vh; background-color: #f0f2f5; }
+        
+        /* Header styles */
+        .header-top {
+            background-color: #026d21;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .header-top .hotline { font-size: 14px; }
+        .header-top a { color: white; text-decoration: none; font-size: 14px; }
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: white;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .logo img { height: 50px; border-radius: 15px; }
+        .search-box { flex-grow: 1; margin: 0 20px; position: relative; }
+        .search-box input {
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;
+        }
+        .search-box button {
+            position: absolute; right: 5px; top: 50%;
+            transform: translateY(-50%);
+            background: green; color: white; border: none;
+            padding: 5px 10px; cursor: pointer; border-radius: 5px;
+        }
+        .menu { display: flex; gap: 15px; font-size: 14px; }
+        .menu a {
+            text-decoration: none; color: black; display: flex; align-items: center; gap: 5px;
+        }
+        .menu a:hover { color: green; }
+
+        /* Chat layout */
+        .container { flex: 1; display: flex; height: calc(100vh - 120px); }
+        .sidebar {
+            width: 250px; background-color: #ffffff; border-right: 1px solid #ddd;
+            padding: 20px; box-shadow: 2px 0 5px rgba(0,0,0,0.05); overflow-y: auto;
+        }
+        .sidebar h3 { margin-top: 0; color: #28a745; }
+        .customer {
+            display: flex; align-items: center; margin-top: 15px; cursor: pointer; transition: 0.2s;
+        }
+        .customer:hover { background-color: #f7f7f7; border-radius: 10px; padding: 5px; }
+        .customer img { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; }
+        .customer-name { font-size: 16px; }
+        .chat { flex: 1; display: flex; flex-direction: column; }
+        .chat-header {
+            background-color: #28a745; color: #fff; padding: 15px; font-size: 18px;
+            font-weight: bold; display: flex; align-items: center;
+        }
+        .chat-header img { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; }
+        .messages {
+            flex: 1; padding: 20px; overflow-y: auto; background-color: #eef6ee;
+        }
+        .message {
+            background-color: white; padding: 10px 15px; border-radius: 20px;
+            margin-bottom: 10px; max-width: 60%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; align-items: center;
+        }
+        .message img { width: 30px; height: 30px; border-radius: 50%; margin-right: 10px; }
+        .message.user {
+            align-self: flex-end; background-color: #d4edda; flex-direction: row-reverse;
+        }
+        .message.user img { margin-left: 10px; margin-right: 0; }
+        .input-area {
+            display: flex; padding: 15px; background-color: #fff; border-top: 1px solid #ddd;
+        }
+        .input-area input {
+            flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 25px;
+            margin-right: 10px; outline: none;
+        }
+        .input-area button {
+            padding: 10px 20px; background-color: #28a745; border: none;
+            color: #fff; border-radius: 25px; cursor: pointer; transition: 0.3s;
+        }
+        .input-area button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-top">
+        <div class="hotline">📞 Hotline: 0933 843 247</div>
+        <a href="lienHe.html">📍 Liên Hệ</a>
+    </div>
+    <div class="header-main">
+        <div class="logo">
+            <img src="logo 3t.png" alt="Thực phẩm 3T">
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Tìm tên sản phẩm">
+            <button>🔍</button>
+        </div>
+        <div class="menu">
+            <a href="tuvan.html">👤 Tư vấn</a>
+            <a href="index.html">❤️ Trang chủ</a>
+            <a href="sanpham.html">🛒 Sản phẩm</a>
+        </div>
+    </div>
+
+    <!-- Chat container -->
+    <div class="container">
+        <div class="sidebar">
+            <h3>Tất cả tin nhắn</h3>
+            <div class="customer">
+                <img src="logo 3t.png" alt="avatar">
+                <div class="customer-name">Thực phẩm 3T</div>
+            </div>
+            <div class="customer">
+                <img src="anhdaidien.jpg" alt="avatar">
+                <div class="customer-name">Khách hàng A</div>
+            </div>
+            <div class="customer">
+                <img src="anhdaidien.jpg" alt="avatar">
+                <div class="customer-name">Khách hàng B</div>
+            </div>
+            <div class="customer">
+                <img src="anhdaidien.jpg" alt="avatar">
+                <div class="customer-name">Khách hàng C</div>
+            </div>
+        </div>
+        <div class="chat">
+            <div class="chat-header">
+                <img src="logo 3t.png" alt="avatar">
+                Hỗ trợ tư vấn trực tuyến
+            </div>
+            <div class="messages" id="chatMessages">
+                <div class="message">
+                    <img src="logo 3t.png" alt="bot">
+                    <span>Chào mừng bạn đã ghé thăm! Hãy để lại số điện thoại để được tư vấn.</span>
+                </div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
+                <button onclick="sendMessage()">Gửi</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            if (input.value.trim() !== '') {
+                const messages = document.getElementById('chatMessages');
+                const newMsg = document.createElement('div');
+                newMsg.className = 'message user';
+                newMsg.innerHTML = `<img src="anhdaidien.jpg" alt="user"> <span>${input.value}</span>`;
+                messages.appendChild(newMsg);
+                messages.scrollTop = messages.scrollHeight;
+
+                setTimeout(() => {
+                    const botReply = document.createElement('div');
+                    botReply.className = 'message';
+                    botReply.innerHTML = `<img src="logo 3t.png" alt="bot"> <span>Cảm ơn bạn! Chúng tôi sẽ liên hệ sớm nhất.</span>`;
+                    messages.appendChild(botReply);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

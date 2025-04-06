@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8"> <!-- Mã hóa ký tự để hỗ trợ tiếng Việt -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hỗ trợ responsive trên thiết bị di động -->
+    <title>Trang tư vấn Thực phẩm 3T</title> <!-- Tiêu đề của trang web -->
+    <style>
+        /* Định dạng tổng thể cho trang */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif; /* Sử dụng font chữ phổ biến */
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f2f5; /* Màu nền nhẹ nhàng */
+        }
+        
+        /* Định dạng Header trên cùng */
+        .header-top {
+            background-color: #026d21; /* Màu nền xanh lá */
+            color: white; /* Chữ màu trắng */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .header-top .hotline {
+            font-size: 14px; /* Cỡ chữ nhỏ */
+        }
+        .header-top a {
+            color: white;
+            text-decoration: none; /* Bỏ gạch chân */
+            font-size: 14px;
+        }
+        
+        /* Header chính */
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: white;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng mờ */
+        }
+        .logo img {
+            height: 50px;
+            border-radius: 15px; /* Bo góc ảnh */
+        }
+        
+        /* Định dạng ChatBox */
+        #chatBox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            display: none; /* Ẩn chatbox mặc định */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            z-index: 1000; /* Chatbox sẽ nổi trên các phần khác */
+        }
+        #chatBox .header {
+            background: green;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+        }
+        #chatBox .header span {
+            float: right;
+            cursor: pointer; /* Khi rê chuột vào có thể bấm đóng */
+        }
+        #chatBox input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        #chatBox button {
+            margin-top: 10px;
+            width: 100%;
+            background: green;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        /* Nút mở chatbox */
+        .chat-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 999; /* Hiển thị trên nội dung khác */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header trên cùng chứa hotline và liên hệ -->
+    <div class="header-top">
+        <div class="hotline">📞 Hotline: 0933 843 247</div>
+        <a href="/Assignment/LienHe/lienHe.html">📍 Liên Hệ</a>
+    </div>
+    
+    <!-- Header chính chứa logo -->
+    <div class="header-main">
+        <div class="logo">
+            <img src="3t.jpg" alt="Thực phẩm 3T"> <!-- Ảnh logo thương hiệu -->
+        </div>
+    </div>
+    
+    <!-- Chat Box -->
+    <div id="chatBox">
+        <div class="header">Tư vấn Thực phẩm 3T <span onclick="closeChat()">×</span></div> <!-- Tiêu đề chatbox và nút đóng -->
+        <div style="padding:10px;">
+            <p>Xin chào! Bạn cần hỗ trợ gì ạ?</p>
+            <input type="text" placeholder="Nhập câu hỏi..."> <!-- Ô nhập câu hỏi -->
+            <button onclick="sendQuestion()">Gửi</button> <!-- Nút gửi câu hỏi -->
+        </div>
+    </div>
+    
+    <!-- Nút mở chat -->
+    <button class="chat-toggle-btn" onclick="openChat()">💬</button>
+    
+    <script>
+        // Hàm mở chatbox
+        function openChat() {
+            document.getElementById("chatBox").style.display = "block";
+        }
+        
+        // Hàm đóng chatbox
+        function closeChat() {
+            document.getElementById("chatBox").style.display = "none";
+        }
+        
+        // Hàm gửi câu hỏi từ chatbox
+        function sendQuestion() {
+            const question = document.querySelector('#chatBox input').value.trim(); // Lấy nội dung từ ô nhập
+            if (question) {
+                window.location.href = `tuvan.html?question=${encodeURIComponent(question)}`; // Chuyển hướng đến trang tư vấn
+            } else {
+                alert('Vui lòng nhập câu hỏi!'); // Hiển thị cảnh báo nếu chưa nhập nội dung
+            }
+        }
+    </script>
+</body>
+</html>

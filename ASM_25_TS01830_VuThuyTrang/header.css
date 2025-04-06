@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header-top {
+    background-color: #026d21;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.header-top .hotline {
+    font-size: 14px;
+}
+
+.header-top a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+.search-box {
+    flex-grow: 1;
+    margin: 0px 40px;
+    position: relative;
+}
+
+.search-box input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-box button {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: green;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu {
+    display: flex;
+    gap: 15px;
+    font-size: 18px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu a:hover {
+    color: green;
+}
+.rounded-img {
+border-radius: 15px; /* Bo góc 15px */
+}

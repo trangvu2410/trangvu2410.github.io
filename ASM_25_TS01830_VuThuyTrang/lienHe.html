@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực phẩm 3T - Liên hệ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body & Layout */
+        body {
+            min-height: 100vh;
+            /* Đảm bảo chiều cao tối thiểu bằng toàn màn hình */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+            /* Đảm bảo nội dung chiếm hết phần trống */
+            padding-top: 120px;
+            /* Đẩy nội dung xuống để không bị che bởi header */
+        }
+
+        /* Header */
+        .header-top {
+            background-color: #026d21;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header-top .hotline {
+            font-size: 14px;
+        }
+
+        .header-top a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: white;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            position: relative;
+            top: 0px;
+            left: 0;
+            z-index: 999;
+
+
+        }
+
+        .logo img {
+            height: 50px;
+            border-radius: 15px;
+        }
+
+        .search-box {
+            flex-grow: 1;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: green;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .menu a:hover {
+            color: green;
+        }
+
+        /* Phần Liên hệ */
+        .contact-container {
+            display: flex;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-info {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .contact-info p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-form h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to right, green, green);
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: linear-gradient(to right, #efefef, #efefef);
+            color: green;
+            transform: scale(1.05);
+        }
+
+        .map {
+            flex: 1;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            /* Đẩy footer xuống nếu nội dung ngắn */
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .subscribe-section {
+            background-color: #f6efe4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Footer tổng thể */
+        .footer {
+            background-color: #ffffff;
+            padding-top: 40px;
+        }
+
+        /* Phần trên của footer */
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 10%;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .footer-column p {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Chăm sóc da và chăm sóc cơ thể trên cùng một hàng */
+        .group-section {
+            display: flex;
+            gap: 50px;
+        }
+
+        /* Phần nền xám dưới */
+        .footer-bottom {
+            background-color: #f8f8f8;
+            padding: 30px 10%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+        }
+
+        .footer-bottom .footer-column h3 {
+            color: green;
+            /* Màu cam */
+            font-weight: bold;
+        }
+
+        .footer-bottom .footer-column p {
+            color: black;
+        }
+
+        /* Căn chỉnh hình ảnh phương thức thanh toán */
+        .payment-methods img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        #chatBox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            z-index: 1000;
+        }
+
+        #chatBox .header {
+            background: green;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        #chatBox .header span {
+            float: right;
+            cursor: pointer;
+        }
+
+        #chatBox input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        #chatBox button {
+            margin-top: 10px;
+            width: 100%;
+            background: green;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .chat-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header-top">
+        <div class="hotline">📞 Hotline: 0933 843 247</div>
+        <a href="lienHe.html">📍 Liên Hệ</a>
+    </div>
+
+    <div class="header-main">
+        <div class="logo">
+            <img src="logo 3t.png" alt="Thực phẩm 3T">
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Tìm tên sản phẩm">
+            <button>🔍</button>
+        </div>
+
+        <div class="menu">
+            <a href="tuvan.html">👤 Tư vấn</a>
+            <a href="index.html">❤️ Trang chủ</a>
+            <a href="sanpham.html">🛒 Sản phẩm</a>
+        </div>
+    </div>
+
+
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <p>📍 Công Ty Cổ Phần Thực Phẩm 3T</p>
+            <p>📞 0933 843 247</p>
+            <p>📧 thuupnxts120120@gmail.com</p>
+
+            <div class="contact-form">
+                <h3>Liên hệ với chúng tôi</h3>
+                <input type="text" placeholder="Họ và tên">
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Nội dung" rows="4"></textarea>
+                <button>Gửi liên hệ</button>
+            </div>
+        </div>
+
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7836.911959691618!2d106.6244223600421!3d10.852881622572845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529466247deb7%3A0x837f6cf22372ab7e!2sFPT%20PolySchool%20TP.HCM!5e0!3m2!1svi!2s!4v1742632051041!5m2!1svi!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    </div>
+    <!-- Phần nội dung -->
+    <div class="content">
+        <div class="subscribe-section">
+            <h2>Liên Hệ</h2>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <!-- Phần trên -->
+            <div class="footer-top">
+
+
+
+
+                <!-- Phần dưới màu xám -->
+                <div class="footer-bottom">
+                    <div class="footer-column">
+                        <h3>LIÊN HỆ VỚI 3T</h3>
+                        <p>Công Ty Cổ Phần Thực Phẩm 3T, Quận Gò Vấp, Phường 30, TP Hồ Chí Minh</p>
+                        <p>sthuupnxts120120@gmail.com</p>
+                        <p>0933 843 247</p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>CHÍNH SÁCH</h3>
+                        <p>Giới thiệuthiệu, Sale, Sản phẩm, Trang chủ, Thực phẩm, Hỏi đáp, Liên hệ</p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>ĐỐI TÁC - LIÊN KẾT</h3>
+                        <p>Chính hãng phân phối độc quyền 3T tại Việt Nam</p>
+                        <p>Đối tác chính hãng của Cloud Night Store</p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>PHƯƠNG THỨC THANH TOÁN</h3>
+                        <div class="payment-methods">
+                            <img src="payment.webp" alt="Phương thức thanh toán">
+                        </div>
+                    </div>
+                </div>
+        </footer>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-bottom">
+                <p>© 2024 Thực phẩm 3T. All Rights Reserved.</p>
+            </div>
+        </footer>
+        <div id="chatBox">
+            <div class="header">Tư vấn Thực phẩm 3T <span onclick="closeChat()">×</span></div>
+            <div style="padding:10px;">
+                <p>Xin chào! Bạn cần hỗ trợ gì ạ?</p>
+                <input type="text" placeholder="Nhập câu hỏi...">
+                <button onclick="sendQuestion()">Gửi</button>
+                <script>
+                    function sendQuestion() {
+                        const question = document.querySelector('#chatBox input').value.trim();
+                        if (question) {
+                            // Chuyển hướng kèm câu hỏi
+                            window.location.href = `tuvan.html?question=${encodeURIComponent(question)}`;
+                        } else {
+                            alert('Vui lòng nhập câu hỏi!');
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+
+        <button class="chat-toggle-btn" onclick="openChat()">💬</button>
+
+        <script>
+            function openChat() {
+                document.getElementById("chatBox").style.display = "block";
+            }
+
+            function closeChat() {
+                document.getElementById("chatBox").style.display = "none";
+            }
+        </script>
+
+</body>
+
+</html>
